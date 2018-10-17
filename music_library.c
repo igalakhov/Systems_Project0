@@ -7,7 +7,7 @@
 
 // music library structure
 struct music_library {
-  struct song_node * letters[27];
+  struct song_node * letters[27]; // a - z, and #
 };
 
 // music library headers
