@@ -30,7 +30,7 @@ void print_list(struct song_node * list){
   printf("}\n");
 }
 
-// find a song and return a pointer tot he song
+// find a song and return a pointer to the song
 struct song_node * find_song(struct song_node * list, char * name, char * artist){
   struct song_node * to_find = create_node(name, artist);
 
@@ -44,18 +44,21 @@ struct song_node * find_song(struct song_node * list, char * name, char * artist
   return list;
 }
 
+// return a pointer to the first song by an artist
 struct song_node * find_artist(struct song_node * list, char * artist){
-  while(strcmp(list->artist, artist))
+  while(list && strcmp(list->artist, artist))
     list = list->next;
 
   return list;
 }
 
+// insert node to the front of the list
 struct song_node * insert_front(struct song_node * list, struct song_node * to_insert){
   to_insert->next = list;
   return to_insert;
 }
 
+// compare two song nodes
 int song_node_cmp(struct song_node * first, struct song_node * second){
   int dif = strcmp(first->artist, second->artist);
   if(dif)
@@ -68,8 +71,7 @@ struct song_node * insert_in_order(struct song_node * list, struct song_node * t
 
   // special case
   if(!list || song_node_cmp(list, to_insert) >= 0){
-    to_insert->next = list;
-    return to_insert;
+    return insert_front(list, to_insert);
   }
 
   // normal case
@@ -84,6 +86,7 @@ struct song_node * insert_in_order(struct song_node * list, struct song_node * t
   return list;
 }
 
+// return the length of the list
 int get_length(struct song_node * list){
   int len = 0;
 
@@ -95,13 +98,18 @@ int get_length(struct song_node * list){
   return len;
 }
 
+// get the nth node of the list
 struct song_node * get_nth_node(struct song_node * list, int n){
+  if(n < 0)
+    return 0;
+
   while(n--)
     list = list->next;
 
   return list;
 }
 
+// get a random node from the list
 struct song_node * get_random_node(struct song_node * list){
   if(!list)
     return 0;
@@ -111,6 +119,7 @@ struct song_node * get_random_node(struct song_node * list){
   return get_nth_node(list, random_n);
 }
 
+// remove a node from the list
 struct song_node * remove_node(struct song_node * list, struct song_node * to_remove){
   // if the first node of the list should be deleted
   if(!song_node_cmp(list, to_remove)){
@@ -135,7 +144,7 @@ struct song_node * remove_node(struct song_node * list, struct song_node * to_re
   return list;
 }
 
-// yay! recursion!
+// free the entire list
 struct song_node * free_list(struct song_node * to_free){
   if(to_free){
     free_list(to_free->next);

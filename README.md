@@ -12,15 +12,15 @@ Written By Ivan Galakhov, period 5
 - [x] free the entire list
 
 ### Array of Linked List
-- [ ] Add song nodes.
-- [ ] Search for a song given song and artist name (return a pointer).
-- [ ] Search for an artist.
-- [ ] Print out all the entries under a certain letter.
-- [ ] Print out all the songs of a certain artist
-- [ ] Print out the entire library.
-- [ ] Shuffle - print out a series of randomly chosen songs.
-- [ ] Delete a song
-- [ ] Clear the library.
+- [x] Add song nodes.
+- [x] Search for a song given song and artist name (return a pointer).
+- [x] Search for an artist.
+- [x] Print out all the entries under a certain letter.
+- [x] Print out all the songs of a certain artist
+- [x] Print out the entire library.
+- [x] Shuffle - print out a series of randomly chosen songs.
+- [x] Delete a song
+- [x] Clear the library.
 
 ## Files Requirements:
 - [x] A .c file that contains the main function you use to test all your work
@@ -28,8 +28,10 @@ Written By Ivan Galakhov, period 5
 - [x] A makefile that will compile all the parts of your code and generate a single executable program
 
 ## Other stuff
-- [ ] Write tests + code for edge cases
+- [x] Write tests + code for edge cases
+- [x] Make sure code order demonstrates proper insertion order
+- [x] Read over again and comment everything properly
 
 ## Git clone link:
 - https://github.com/mks65/my_tunez.git
-- [ ] Link submodule
+- [x] Link submodule
